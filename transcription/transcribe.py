@@ -17,7 +17,7 @@ params = {
     'response_format': 'srt'
 }
 
-# # Call the transcribe function with the custom parameters
+#Call the transcribe function with the custom parameters
 transcription = openai.Audio.transcribe(**params)
 
 print(transcription)

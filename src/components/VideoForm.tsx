@@ -1,20 +1,7 @@
 import React, { useState } from "react";
 import * as Form from "@radix-ui/react-form";
-import * as Select from "@radix-ui/react-select";
-import {
-  CheckIcon,
-  ChevronDownIcon,
-  ChevronUpIcon,
-} from "@radix-ui/react-icons";
-// import SelectLanguage from "./SelectLanguage";
 import { FC } from "react";
 import Options from "./Options";
-
-// type VideoFormProps = {
-//   // onSubmit: (videoURL: string) => void,
-//   onSubmit: any
-//   isProcessing: boolean,
-// };
 
 type Options = {
   language: string;
@@ -29,7 +16,7 @@ type VideoFormProps = {
 
 const VideoForm: FC<VideoFormProps> = ({ onSubmit, isProcessing }) => {
   const [options, setOptions] = useState<Options>({
-    language: "Japanese",
+    language: "Spanish",
     maxTokens: "3000",
     temperature: "0",
   });
@@ -39,23 +26,15 @@ const VideoForm: FC<VideoFormProps> = ({ onSubmit, isProcessing }) => {
     maxTokens: string;
     temperature: string;
   }) => {
-    console.log(newOptions); // Add this
+    console.log(newOptions);
     setOptions(newOptions);
   };
-
-  // const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
-  //   e.preventDefault();
-  //   const videoUrl = (e.target as HTMLFormElement | undefined)?.videoUrl?.value as string;
-  //   // onSubmit(videoUrl);
-  //   onSubmit({ videoUrl, ...options });
-
-  // };
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
     const videoUrl = (e.target as HTMLFormElement | undefined)?.videoUrl
       ?.value as string;
-    console.log({ videoUrl, ...options }); // Add this
+    console.log({ videoUrl, ...options });
     onSubmit({ videoUrl, ...options });
   };
 

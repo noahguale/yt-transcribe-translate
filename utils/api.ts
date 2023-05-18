@@ -26,26 +26,6 @@ async function streamResponse(
   });
 }
 
-// export async function processVideo(
-//   videoId: string,
-//   callback: ProgressCallback
-// ): Promise<false | string> {
-//   callback("Downloading audio...\n");
-//   await downloadAudio(videoId, callback);
-
-//   callback("\nTranscribing audio. It takes a while...\n");
-//   const srt = await transcribe(videoId, callback);
-
-//   if (srt) {
-//     callback("\nTranslating text...\n");
-//     const result = await translate(srt, callback);
-//     callback("\nDone!\n");
-//     return result;
-//   }
-
-//   return false;
-// }
-
 export async function processVideo(
   videoId: string,
   language: string,
@@ -119,29 +99,6 @@ export async function transcribe(
     return false;
   }
 }
-
-// export async function translate(srtData: string, onProgress: ProgressCallback) {
-//   const res = await fetch(`/api/translate`, {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "text/plain; charset=utf-8",
-//     },
-//     body: srtData,
-//   });
-//   const reader = res.body?.getReader();
-
-//   if (reader) {
-//     const result = await streamResponse(reader, onProgress);
-//     return result
-//       .split("\n")
-//       .filter((line) => {
-//         return !line.startsWith("[Error]");
-//       })
-//       .join("\n");
-//   } else {
-//     return false;
-//   }
-// }
 
 export async function translate(
   srtData: string,

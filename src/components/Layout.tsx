@@ -13,28 +13,6 @@ const Layout: FC<LayoutProps> = ({}) => {
   const [activeTab, setActiveTab] = useState("progress");
   const [resultTranscript, setResultTranscript] = useState("");
 
-  // const handleStartProcessing = async (videoUrl: string) => {
-  //   const videoId = getVideoIdFromUrl(videoUrl);
-  //   console.log("videoId:", videoId);
-
-  //   if (typeof videoId === "string") {
-  //     setResultTranscript("");
-  //     setProcessing(true);
-
-  //     const transcript = await processVideo(videoId, (message) => {
-  //       setProgressOutput((prev) => prev + message);
-  //     });
-  //     if (transcript) {
-  //       setResultTranscript(transcript);
-  //     }
-
-  //     setProcessing(false);
-  //     setActiveTab("result");
-  //   } else {
-  //     alert("Invalid URL");
-  //   }
-  // };
-
   const handleStartProcessing = async (data: {
     videoUrl: string;
     language: string;

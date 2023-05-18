@@ -21,11 +21,7 @@ export function transferChildProcessOutput(
     );
   });
 
-  //   response.writeHead(200, {
-  //     'Content-Type': 'text/plain',
-  //     'Cache-Control': 'no-cache',
-  //     'Content-Encoding': 'none'
-  //   })
+
 
   cmd.stdout.pipe(response);
 }
